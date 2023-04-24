@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'topics/new'
   get 'session/new'
   get 'tags/index'
   get 'tags/new'
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   get 'pages/help'
   
   resources :users
+  resources :topics
   
   get 'pages/link'
   get 'pages/test'
