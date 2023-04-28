@@ -1,4 +1,4 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
   def new
   end
   
@@ -28,7 +28,7 @@ class SessionController < ApplicationController
     @current_user = nil
   end
   
-  def session_paramus
+  def session_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end

@@ -27,6 +27,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+  
+  def size_range
+    1..10.megabytes
+  end
 
   # Create different versions of your uploaded files:
   # version :thumb do
@@ -38,7 +42,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def extension_allowlist
   #   %w(jpg jpeg gif png)
   # end
-
+  def extension_whitelist
+    %w(jpg jpeg png)
+  end
+  
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
