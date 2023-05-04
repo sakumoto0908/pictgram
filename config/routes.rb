@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'comments/new'
   get 'topics/new'
   get 'sessions/new'
   get 'tags/index'
@@ -8,7 +9,9 @@ Rails.application.routes.draw do
   get 'pages/help'
   
   resources :users
-  resources :topics
+  resources :topics do
+  resources :comments
+  end
   
   get 'pages/link'
   get 'pages/test'
@@ -21,4 +24,6 @@ Rails.application.routes.draw do
   post '/favorites', to: 'favorites#create'
   delete '/favorites', to: 'favorites#destroy'
   
+  
+  post 'topics/comment' => 'topics#comment'
 end

@@ -14,8 +14,13 @@ class TopicsController < ApplicationController
       redirect_to topics_path, success: '投稿に成功しました'
     else
       flash.now[danger] = "投稿に失敗しました"
-      render :new
     end
+  end
+  
+  def comment
+    @comment = Comment.new(body: params[:body], topic_id: params[:topic_id], user_id: params[:user_id])
+    @comment.save
+    redirect_to topics_path
   end
 
   private
