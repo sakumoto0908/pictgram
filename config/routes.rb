@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   
   resources :users
   resources :topics do
-  resources :comments
+    resources :comments
   end
   
   get 'pages/link'
@@ -25,5 +25,4 @@ Rails.application.routes.draw do
   delete '/favorites', to: 'favorites#destroy'
   
   
-  post 'topics/comment' => 'topics#comment'
 end
